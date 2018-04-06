@@ -21,38 +21,50 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'solid' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"><?php esc_html_e('Toggle navigation', 'solid');?></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+			</div>
+			<div class="navbar-collapse collapse navbar-right">
+				<?php wp_nav_menu( array(
+					'theme_location'  => 'menu-1',
+					'container'       => false,
+					'menu_class'      => 'nav navbar-nav',
+					'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'walker'          => new Solid_Navwalker(),
+					) );
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$solid_description = get_bloginfo( 'description', 'display' );
-			if ( $solid_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $solid_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+				<!-- <ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="blog.html">BLOG</a></li>
+							<li><a href="single-post.html">SINGLE POST</a></li>
+							<li><a href="portfolio.html">PORTFOLIO</a></li>
+							<li><a href="single-project.html">SINGLE PROJECT</a></li>
+						</ul>
+					</li>
+				</ul> -->
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'solid' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3><?php esc_html_e('Blog List', 'solid');?></h3>
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /blue -->
