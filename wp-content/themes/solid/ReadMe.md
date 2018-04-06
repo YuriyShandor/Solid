@@ -3,3 +3,5 @@
 В файлі functions.php підключити стилі та скрипти
 
 Створюємо в адмінці меню, і прописуємо в header.php
+
+Встановити TGM Plugin Activation

@@ -13,21 +13,22 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'solid' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'solid' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'solid' ), 'solid', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	 <div id="footerwrap">
+	 	<div class="container">
+			<?php if ( is_active_sidebar( 'footer' ) ) { ?>
+				<div class="row">
+					<?php dynamic_sidebar( 'footer' ); ?>
+			 	</div>
+			<?php } ?>
+			<div class="row">
+        <div class="col-lg-12">
+          <p>&copy; Yuriy Shandor | 2018</p>
+        </div>
+      </div>
+	 	</div>
+	 </div>
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
